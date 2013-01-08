@@ -7,6 +7,10 @@ Public Class Form2
     Dim Pass As Integer = 0
     Dim Fail As Integer = 0
     Dim studcount As Integer = 0
+    Dim minsub() As Integer
+    Dim maxsub() As Integer
+    Dim indexx As Integer = -1
+
     Private Sub Browsebtn_Click(sender As Object, e As EventArgs) Handles Browsebtn.Click
         If (OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK) Then
 
@@ -18,10 +22,11 @@ Public Class Form2
             Dim data As String = ""
             Dim tempdata As String
             tempdata = ReadPdfFile(OpenFileDialog1.FileName)
-            Dim fwrite As New StreamWriter("C:\Users\Darth\Desktop\test.txt")
+            Dim fwrite As New StreamWriter("C:\Web\test.txt")
             fwrite.Write(tempdata)
             fwrite.Close()
             ParseToObjects(tempdata)
+            TextBox1.Text = sourcePdf.ToString
         End If
 
     End Sub
@@ -241,11 +246,69 @@ step1:      Dim j As Integer = Studobjects(i).temp.IndexOf(dept)
         Next
         Label11.Text = Pass
         Label12.Text = Fail
-        Label13.Text = ((Pass / (Integer.Parse(Label10.Text))) * 100).ToString
-        Label14.Text = ((Fail / (Integer.Parse(Label10.Text))) * 100).ToString
+        Label13.Text = ((Pass / (Integer.Parse(Label10.Text))) * 100).ToString("G3")
+        Label14.Text = ((Fail / (Integer.Parse(Label10.Text))) * 100).ToString("G3")
         For k = 0 To studcount - 1 Step 1
             ListBox1.Items.Add(Studobjects(k).sname)
         Next
+        Dim minsub() As String
+        ReDim Preserve minsub(Studobjects(0).Subject.Length)
+        ReDim Preserve maxsub(Studobjects(0).Subject.Length)
+        For k = 0 To Studobjects(0).Subject.Length Step 1
+            minsub(k) = Studobjects(0).SubjectT(k)
+        Next
+        
+        Dim z As Integer = 0
+        For z = 0 To Studobjects(0).Subject.Length Step 1
+            For k = 0 To studcount - 1 Step 1
+                If minsub(z) > Studobjects(k).SubjectT(z) Then
+                    minsub(z) = Studobjects(k).SubjectT(z)
+                End If
+            Next
+        Next
+        For z = 0 To Studobjects(0).Subject.Length Step 1
+            For k = 0 To studcount - 1 Step 1
+                If maxsub(z) < Studobjects(k).SubjectT(z) Then
+                    maxsub(z) = Studobjects(k).SubjectT(z)
+                End If
+            Next
+        Next
+        Label40.Text = Studobjects(0).Subject(0)
+        Label41.Text = Studobjects(0).Subject(1)
+        Label42.Text = Studobjects(0).Subject(2)
+        Label43.Text = Studobjects(0).Subject(3)
+        Label44.Text = Studobjects(0).Subject(4)
+        Label45.Text = Studobjects(0).Subject(5)
+        Label46.Text = Studobjects(0).Subject(6)
+        Label47.Text = Studobjects(0).Subject(7)
+
+        Label31.Text = Studobjects(0).Subject(0)
+        Label32.Text = Studobjects(0).Subject(1)
+        Label33.Text = Studobjects(0).Subject(2)
+        Label34.Text = Studobjects(0).Subject(3)
+        Label35.Text = Studobjects(0).Subject(4)
+        Label36.Text = Studobjects(0).Subject(5)
+        Label37.Text = Studobjects(0).Subject(6)
+        Label38.Text = Studobjects(0).Subject(7)
+
+        Label15.Text = minsub(0)
+        Label16.Text = minsub(1)
+        Label17.Text = minsub(2)
+        Label18.Text = minsub(3)
+        Label19.Text = minsub(4)
+        Label20.Text = minsub(5)
+        Label21.Text = minsub(6)
+        Label22.Text = minsub(7)
+
+        Label23.Text = maxsub(0)
+        Label24.Text = maxsub(1)
+        Label25.Text = maxsub(2)
+        Label26.Text = maxsub(3)
+        Label27.Text = maxsub(4)
+        Label28.Text = maxsub(5)
+        Label29.Text = maxsub(6)
+        Label30.Text = maxsub(7)
+
 
     End Sub
     Public Function ReadPdfFile(ByVal fileName As String)
@@ -267,4 +330,78 @@ step1:      Dim j As Integer = Studobjects(i).temp.IndexOf(dept)
         Return text.ToString()
     End Function
 
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+
+        indexx = ListBox1.SelectedIndex()
+        Label53.Text = Studobjects(indexx).SubjectT(0)
+        Label52.Text = Studobjects(indexx).SubjectT(1)
+        Label51.Text = Studobjects(indexx).SubjectT(2)
+        Label50.Text = Studobjects(indexx).SubjectT(3)
+        Label49.Text = Studobjects(indexx).SubjectT(4)
+        Label48.Text = Studobjects(indexx).SubjectT(5)
+        Label56.Text = Studobjects(indexx).SubjectT(6)
+        Label55.Text = Studobjects(indexx).SubjectT(7)
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Label53.Text = "-"
+        Label52.Text = "-"
+        Label51.Text = "-"
+        Label50.Text = "-"
+        Label49.Text = "-"
+        Label48.Text = "-"
+        Label56.Text = "-"
+        Label55.Text = "-"
+        Label40.Text = "-"
+        Label41.Text = "-"
+        Label42.Text = "-"
+        Label43.Text = "-"
+        Label44.Text = "-"
+        Label45.Text = "-"
+        Label46.Text = "-"
+        Label47.Text = "-"
+
+
+        Label31.Text = "-"
+        Label32.Text = "-"
+        Label33.Text = "-"
+        Label34.Text = "-"
+        Label35.Text = "-"
+        Label36.Text = "-"
+        Label37.Text = "-"
+        Label38.Text = "-"
+
+        Label15.Text = "-"
+        Label16.Text = "-"
+        Label17.Text = "-"
+        Label18.Text = "-"
+        Label19.Text = "-"
+        Label20.Text = "-"
+        Label21.Text = "-"
+        Label22.Text = "-"
+
+        Label23.Text = "-"
+        Label24.Text = "-"
+        Label25.Text = "-"
+        Label26.Text = "-"
+        Label27.Text = "-"
+        Label28.Text = "-"
+        Label29.Text = "-"
+        Label30.Text = "-"
+
+        Label10.Text = "-"
+        Label11.Text = "-"
+        Label12.Text = "-"
+        Label13.Text = "-"
+        Label14.Text = "-"
+
+        TextBox1.Text = ""
+      
+        ListBox1.Items.Clear()
+
+
+
+
+    End Sub
 End Class

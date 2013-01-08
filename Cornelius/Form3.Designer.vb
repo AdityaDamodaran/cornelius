@@ -36,6 +36,7 @@ Partial Class Form3
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -149,6 +150,7 @@ Partial Class Form3
         '
         'PictureBox2
         '
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
         Me.PictureBox2.Location = New System.Drawing.Point(80, 12)
         Me.PictureBox2.Name = "PictureBox2"
@@ -156,11 +158,21 @@ Partial Class Form3
         Me.PictureBox2.TabIndex = 12
         Me.PictureBox2.TabStop = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(56, 613)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(213, 29)
+        Me.Button1.TabIndex = 13
+        Me.Button1.Text = "Plot Graph"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(867, 691)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
@@ -195,4 +207,5 @@ Partial Class Form3
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

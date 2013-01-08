@@ -25,3 +25,7 @@ D:\fill me\Cornelius\Cornelius\obj\Debug\Cornelius.pdb
 D:\fill me\Cornelius\Cornelius\bin\Debug\itextsharp.dll
 D:\fill me\Cornelius\Cornelius\obj\Debug\Cornelius.vbprojResolveAssemblyReference.cache
 D:\fill me\Cornelius\Cornelius\obj\Debug\WindowsApplication1.SplashScreen1.resources
+C:\Users\Darth\Documents\GitHub\cornelius\Cornelius\bin\Debug\Cornelius.exe.config
+C:\Users\Darth\Documents\GitHub\cornelius\Cornelius\obj\Debug\Cornelius.exe
+C:\Users\Darth\Documents\GitHub\cornelius\Cornelius\obj\Debug\Cornelius.xml
+C:\Users\Darth\Documents\GitHub\cornelius\Cornelius\obj\Debug\Cornelius.pdb
